@@ -152,4 +152,4 @@ def test_two_pipe_tables_become_two_word_tables(tmp_path):
     table = "| District | Cases |\n|---|---|\n| North | 12 |\n| South | 7 |\n"
     r = render(tmp_path, YAML + table + "\nWeekly summary text.\n\n" + table)
     doc = Document(tmp_path / "bulletin.docx")
-    assert len(doc.tables) == 3  # wrong on purpose: there are two tables
+    assert len(doc.tables) == 2
