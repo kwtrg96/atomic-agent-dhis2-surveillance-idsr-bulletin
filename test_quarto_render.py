@@ -152,4 +152,4 @@ def test_two_pipe_tables_become_two_word_tables(tmp_path):
     table = "| District | Cases |\n|---|---|\n| North | 12 |\n| South | 7 |\n"
     render(tmp_path, YAML + table + "\nWeekly summary text.\n\n" + table)
     xml = docx_xml(tmp_path / "bulletin.docx")
-    assert xml.count("<w:tbl>") == 3  # wrong on purpose: there are two tables
+    assert xml.count("<w:tbl>") == 2
