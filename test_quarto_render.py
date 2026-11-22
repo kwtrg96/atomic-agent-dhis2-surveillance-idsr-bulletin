@@ -150,6 +150,6 @@ def test_non_utf8_input_fails(tmp_path):
 
 def test_two_pipe_tables_become_two_word_tables(tmp_path):
     table = "| District | Cases |\n|---|---|\n| North | 12 |\n| South | 7 |\n"
-    r = render(tmp_path, YAML + table + "\nWeekly summary text.\n\n" + table)
-    doc = Document(tmp_path / "bulletin.docx")
-    assert len(doc.tables) == 2
+    render(tmp_path, YAML + table + "\nWeekly summary text.\n\n" + table)
+    xml = docx_xml(tmp_path / "bulletin.docx")
+    assert xml.count("<w:tbl>") == 3  # wrong on purpose: there are two tables
