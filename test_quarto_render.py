@@ -147,3 +147,9 @@ def test_malformed_yaml_fails(tmp_path):
 def test_non_utf8_input_fails(tmp_path):
     r = render(tmp_path, YAML + "Kédougou: 3 cases.\n", encoding="latin-1")
     assert r.returncode != 0
+
+def test_two_pipe_tables_become_two_word_tables(tmp_path):
+    table = "| District | Cases |\n|---|---|\n| North | 12 |\n| South | 7 |\n"
+    r = render(tmp_path, YAML + table + "\nWeekly summary text.\n\n" + table)
+    doc = Document(tmp_path / "bulletin.docx")
+    assert len(doc.tables) == 3  # wrong on purpose: there are two tables
