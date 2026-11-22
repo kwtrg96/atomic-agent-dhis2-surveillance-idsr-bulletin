@@ -1,5 +1,7 @@
 # atomic-agent-dhis2-surveillance-idsr-bulletin
 
+[![tests](https://github.com/kwtrg96/atomic-agent-dhis2-surveillance-idsr-bulletin/actions/workflows/tests.yml/badge.svg)](https://github.com/kwtrg96/atomic-agent-dhis2-surveillance-idsr-bulletin/actions/workflows/tests.yml)
+
 This repository holds unit tests for the **Render bulletin** atomic protocol of the IDSR Bulletin Agent, an agentic AI workflow that turns weekly DHIS2 surveillance data into a checked, human-approved IDSR bulletin. The protocol is the [Quarto](https://quarto.org) command-line tool (Posit), which is the citable source; the tests call exactly the two commands the workflow uses.
 
 ## Wire diagram
